@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Secrets (DO NOT REMOVE)
+.env
+
+# Database/Logs
+logs
+*.log
+npm-debug.log*
+
+# Uploads (If your dashboard handles user images/avatars)
+public/uploads/
+storage/
+
+# System
+.DS_Store
+Thumbs.db
