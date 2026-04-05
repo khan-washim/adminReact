@@ -1,4 +1,4 @@
-# QuAArks Admin Dashboard
+# React-admin-dashboard
 
 A full-stack MERN exam management admin dashboard with JWT authentication, Redux Toolkit state management, and a beautiful animated login page.
 
