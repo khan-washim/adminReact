@@ -102,7 +102,7 @@ function Login() {
             {/* Demo credentials hint */}
             <div className="login-demo-hint">
               <span className="login-demo-label">Demo credentials</span>
-              <code>admin@quaarks.com</code>
+              <code>admin@gmail.com</code>
               <span style={{ color: 'var(--text-muted)', margin: '0 0.25rem' }}>/</span>
               <code>admin123</code>
             </div>
