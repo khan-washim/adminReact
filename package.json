@@ -1,7 +1,7 @@
 {
-  "name": "quaarks-admin-dashboard",
+  "name": "react-admin-dashboard",
   "version": "1.0.0",
-  "description": "QuAArks Admin Dashboard - Full Stack MERN Application",
+  "description": "React Admin Dashboard - Full Stack MERN Application",
   "private": true,
   "scripts": {
     "install:all": "npm install --prefix frontend && npm install --prefix backend",

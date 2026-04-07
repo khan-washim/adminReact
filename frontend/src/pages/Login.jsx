@@ -95,7 +95,7 @@ function Login() {
               <div className="login-card-icon">
                 <BsShieldFill />
               </div>
-              <h2>Welcome back</h2>
+              <h2>Welcome back, its your admin panel</h2>
               <p>Sign in to your admin account</p>
             </div>
 
