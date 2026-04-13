@@ -10,35 +10,45 @@ import userRoutes from './routes/users.js';
 import subjectRoutes from './routes/subjects.js';
 import examConfigRoutes from './routes/examConfigs.js';
 import examTypeRoutes from './routes/examTypes.js';
+import { seed } from './seed.js';
 
 dotenv.config();
 
 const app = express();
 
-// CORS — only allow your frontend origin
+// CORS — allow all origins
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
-  credentials: true
+  origin: '*',
+  credentials: false
 }));
 
 app.use(express.json());
 
-// Connect DB
 connectDB();
 
 // Public routes
 app.use('/api/auth', authRoutes);
 
-// Protected routes — all require valid JWT
-app.use('/api/dashboard', protect, dashboardRoutes);
-app.use('/api/questions', protect, questionRoutes);
-app.use('/api/users', protect, userRoutes);
-app.use('/api/subjects', protect, subjectRoutes);
+// Protected routes
+app.use('/api/dashboard',    protect, dashboardRoutes);
+app.use('/api/questions',    protect, questionRoutes);
+app.use('/api/users',        protect, userRoutes);
+app.use('/api/subjects',     protect, subjectRoutes);
 app.use('/api/exam-configs', protect, examConfigRoutes);
-app.use('/api/exam-types', protect, examTypeRoutes);
+app.use('/api/exam-types',   protect, examTypeRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
+
+// One-time seed route
+app.get('/api/run-seed', async (req, res) => {
+  try {
+    await seed();
+    res.json({ success: true, message: '🎉 Seeded! Login: admin@gmail.com / admin123' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
 
 // Global error handler
 app.use((err, req, res, next) => {
